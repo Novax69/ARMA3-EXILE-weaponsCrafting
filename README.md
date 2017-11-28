@@ -12,7 +12,7 @@ How to install ?
 
 If you use CDAH :
 
-1- go to CDAH_crafting/logic and replace the file CDAH_ExileClient_object_item_craft.sqf with the one given
+1- go to CDAH_crafting/logic and replace the files CDAH_ExileClient_object_item_craft.sqf and CDAH_ExileClient_gui_crafting_show with the one given
 
 2- Copy the folder Custom in your Mission folder.
 
@@ -44,7 +44,8 @@ If you don't use CDAH :
 
 2- Open the config.cpp and search for class CfgExileCustomCode and add :
 
-      ExileClient_object_item_craft = "Custom\weaponsCrafts\data\ExileClient_object_item_craft.sqf";
+      ExileClient_object_item_craft = "Custom\weaponsCraft\data\ExileClient_object_item_craft.sqf";
+      ExileClient_gui_crafting_show = "Custom\weaponsCraft\data\ExileClient_gui_crafting_show.sqf";
       ExileClient_util_item_getCraftingRecipes = "Custom\weaponsCraft\data\ExileClient_util_item_getCraftingRecipes.sqf";
       
 3- Then search for class CfgCraftingRecipes and add : 
