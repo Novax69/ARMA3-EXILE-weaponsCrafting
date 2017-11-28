@@ -41,6 +41,7 @@ And it's done !
 If you don't use CDAH :
 
 1- Copy the folder Custom inside your Missions folder
+
 2- Open the config.cpp and search for class CfgExileCustomCode and add :
 
       ExileClient_object_item_craft = "Custom\weaponsCrafts\data\ExileClient_object_item_craft.sqf";
