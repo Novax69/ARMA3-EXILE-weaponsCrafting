@@ -13,7 +13,9 @@ How to install ?
 If you use CDAH :
 
 1- go to CDAH_crafting/logic and replace the file CDAH_ExileClient_object_item_craft.sqf with the one given
+
 2- Copy the folder Custom in your Mission folder.
+
 3- Open config.cpp, search for class CfgCraftingRecipes
 
 and add below : 
