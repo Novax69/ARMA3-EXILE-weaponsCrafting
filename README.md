@@ -41,7 +41,7 @@ If you don't use CDAH :
 1- Copy the folder Custom inside your Missions folder
 2- Open the config.cpp and search for class CfgExileCustomCode and add :
 
-      ExileClient_object_item_craft = "Custom\Crafts\ExileClient_object_item_craft.sqf";
+      ExileClient_object_item_craft = "Custom\weaponsCrafts\data\ExileClient_object_item_craft.sqf";
       ExileClient_util_item_getCraftingRecipes = "Custom\weaponsCraft\data\ExileClient_util_item_getCraftingRecipes.sqf";
       
 3- Then search for class CfgCraftingRecipes and add : 
