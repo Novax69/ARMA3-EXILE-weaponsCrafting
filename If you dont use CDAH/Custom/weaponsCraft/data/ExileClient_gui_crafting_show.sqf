@@ -7,8 +7,6 @@
  *
  * This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. 
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
- *
- * Edited By Novax.
  */
  
 private["_recipeClassName", "_recipeConfig", "_recipeName", "_pictureItemClassName", "_pictureItemConfig",
@@ -41,11 +39,16 @@ uiNameSpace setVariable ["RscExileCraftItemRecipeClassName", _recipeClassName];
 _dialog = uiNameSpace getVariable ["RscExileCraftItemDialog", displayNull];
 _description = format["<t size='1.5' font='PuristaMedium' align='left'>%1</t><br/><br/>", _recipeName];
 {
+
+
+
 	_componentQuantity = _x select 0;
 	_componentItemClassName = _x select 1;
-	_componentItemName = getText(configFile >> "CfgMagazines" >> _componentItemClassName >> "displayName");
+	_wScomponentItemName = getText(configFile >> "CfgMagazines" >> _componentItemClassName >> "displayName");
+	_wScomponentWeapName = getText(configFile >> "CfgWeapons" >> _componentItemClassName >> "displayName");
+	_wScomponentGlobalName = _wScomponentItemName + _wScomponentWeapName;
 	_equippedComponentQuantity = { _x == _componentItemClassName } count _equippedMagazines;
-	_description = _description + format["<t size='1' font='puristaMedium' align='left'>%1</t>", _componentItemName];
+	_description = _description + format["<t size='1' font='puristaMedium' align='left'>%1</t>", _wScomponentGlobalName];
 	_possibleCraftQuantity = _possibleCraftQuantity min (floor (_equippedComponentQuantity / _componentQuantity));
 	if (_equippedComponentQuantity < _componentQuantity ) then
 	{
