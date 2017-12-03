@@ -64,7 +64,7 @@ fnc_components_Load = {
 	lbClear 85502;
 
 	//Populate Components 
-	(_display displayCtrl 85502) lbAdd Format["====== COMPOSANTS ======"];
+	(_display displayCtrl 85502) lbAdd Format["====== COMPONENTS ======"];
 
 	{
 		_Quantity = _x select 0;
@@ -100,7 +100,7 @@ fnc_components_Load = {
 	  
 	  
 	//Populate Tools  
-	if (count _Tools > 0)  then { (_display displayCtrl 85502) lbAdd Format["====== OUTILS ======"]; };
+	if (count _Tools > 0)  then { (_display displayCtrl 85502) lbAdd Format["====== TOOLS ======"]; };
 	{	
 		_Tool = _x;
 		
@@ -111,7 +111,7 @@ fnc_components_Load = {
 		_equippedToolQuantity = { _x == _Tool } count _equippedMagazines;
 		if (_equippedToolQuantity == 0 ) then
 		{
-			(_display displayCtrl 85502) lbAdd Format["%1 - [MANQUANT]",_ToolDispName];
+			(_display displayCtrl 85502) lbAdd Format["%1 - [MISSING]",_ToolDispName];
 			_lbsize = lbSize (_display displayCtrl 85502);
 			(_display displayCtrl 85502) lbSetColor [_lbsize-1, [0.918, 0, 0,1]];			
 		}
@@ -161,7 +161,7 @@ fnc_components_Load = {
 		};
 		if !(_foundObject) then
 		{
-			(_display displayCtrl 85502) lbAdd Format["%1 - [MANQUANT]",_RequiredDispName];
+			(_display displayCtrl 85502) lbAdd Format["%1 - [MISSING]",_RequiredDispName];
 			_lbsize = lbSize (_display displayCtrl 85502);
 			(_display displayCtrl 85502) lbSetColor [_lbsize-1, [0.918, 0, 0,1]];				
 		};
@@ -176,7 +176,7 @@ fnc_components_Load = {
 		//Exile Code
 		if !(surfaceIsWater getPos player) then 
 		{
-			(_display displayCtrl 85502) lbAdd Format["%1 - [MANQUANT]", "Ocean"];
+			(_display displayCtrl 85502) lbAdd Format["%1 - [MISSING]", "Ocean"];
 			_lbsize = lbSize (_display displayCtrl 85502);
 			(_display displayCtrl 85502) lbSetColor [_lbsize-1, [0.918, 0, 0,1]];				
 		}
@@ -194,7 +194,7 @@ fnc_components_Load = {
 		//Exile Code
 		if !([player, 4] call ExileClient_util_world_isFireInRange) then 
 		{
-			(_display displayCtrl 85502) lbAdd Format["%1 - [MANQUANT]", "Fire"];
+			(_display displayCtrl 85502) lbAdd Format["%1 - [MISSING]", "Fire"];
 			_lbsize = lbSize (_display displayCtrl 85502);
 			(_display displayCtrl 85502) lbSetColor [_lbsize-1, [0.918, 0, 0,1]];				
 		}
@@ -207,7 +207,7 @@ fnc_components_Load = {
 	};	
 
 	//Populate Returns
-	(_display displayCtrl 85502) lbAdd Format["====== DONNE ======"];
+	(_display displayCtrl 85502) lbAdd Format["====== RETURNS ======"];
 	{
 		_Quantity = _x select 0;
 		_Component = _x select 1;
