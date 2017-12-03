@@ -44,8 +44,7 @@ _description = format["<t size='1.5' font='PuristaMedium' align='left'>%1</t><br
     _componentItemClassName = _x select 1;
     _wScomponentItemName = getText(configFile >> "CfgMagazines" >> _componentItemClassName >> "displayName");
     _wScomponentWeapName = getText(configFile >> "CfgWeapons" >> _componentItemClassName >> "displayName");
-    _wScomponentGlobalName = _wScomponentItemName + _wScomponentWeapName;
-    
+    _wScomponentGlobalName = _wScomponentItemName + _wScomponentWeapName;   
     _equippedComponentQuantity = { _x == _componentItemClassName } count _equippedMagazines;
     _description = _description + format["<t size='1' font='puristaMedium' align='left'>%1</t>", _wScomponentGlobalName];
     _possibleCraftQuantity = _possibleCraftQuantity min (floor (_equippedComponentQuantity / _componentQuantity));
