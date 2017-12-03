@@ -157,7 +157,7 @@ for '_j' from 0 to (count (missionConfigFile >> "CfgCraftingRecipes"))-1 do
 fnc_components_Load = {
 _display = uiNameSpace getVariable ["RscExileXM8", displayNull];
 
-_equippedMagazines = magazines player;
+_equippedMagazines = magazines player + weapons player + (items player - weapons player);
 _SelectedRecipeCtrl = _this select 0;
 SelectedRecipe 	= _SelectedRecipeCtrl lbData (lbCurSel _SelectedRecipeCtrl);
 
