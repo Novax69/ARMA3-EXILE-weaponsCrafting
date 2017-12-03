@@ -181,26 +181,30 @@ lbClear 5502;
         _Component = _x select 1;
         
 		_ComponentDispName = getText (configfile >> "CfgMagazines" >> _Component >> "displayName");
-		_ComponentPicture  = getText (configfile >> "CfgMagazines" >> _Component >> "picture");			
+		_ComponentPicture  = getText (configfile >> "CfgMagazines" >> _Component >> "picture");
+		_ComponentWeapDispName = getText (configfile >> "CfgWeapons" >> _Component >> "displayName");
+		_ComponentWeapPicture = getText (configfile >> "CfgWeapons" >> _Component >> "picture");	
+		_ComponentItemName = _ComponentDispName + _ComponentWeapDispName;
+		_ComponentItemPicture = _ComponentWeapPicture + _ComponentPicture;			
 		
 		//Exile Code
 		_equippedComponentQuantity = { _x == _Component} count _equippedMagazines;
 		if (_equippedComponentQuantity < _Quantity ) then
 		{
-			(_display displayCtrl 5502) lbAdd Format["%3 - [%1/%2]",  _equippedComponentQuantity, _Quantity, _ComponentDispName];
+			(_display displayCtrl 5502) lbAdd Format["%3 - [%1/%2]",  _equippedComponentQuantity, _Quantity, _ComponentItemName];
 			_lbsize = lbSize (_display displayCtrl 5502);
 			(_display displayCtrl 5502) lbSetColor [_lbsize-1, [0.918, 0, 0,1]];
 		}
 		else
 		{ 
-			(_display displayCtrl 5502) lbAdd Format["%3 - [%1/%2]",  _equippedComponentQuantity, _Quantity, _ComponentDispName];
+			(_display displayCtrl 5502) lbAdd Format["%3 - [%1/%2]",  _equippedComponentQuantity, _Quantity, _ComponentItemName];
 			_lbsize = lbSize (_display displayCtrl 5502);
 			(_display displayCtrl 5502) lbSetColor [_lbsize-1, [0.698, 0.925, 0,1]];			
 		};		
 		
 		
         
-		(_display displayCtrl 5502) lbSetPicture [_forEachIndex+1,_ComponentPicture];
+		(_display displayCtrl 5502) lbSetPicture [_forEachIndex+1,_ComponentItemPicture];
 		(_display displayCtrl 5502) lbSetData [_forEachIndex+1,_Component];
 		
       } forEach _components;
